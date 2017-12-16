@@ -47,6 +47,8 @@ namespace GraphMagic.Maps
             var baseRect = new Rect(startPoint, finishPoint);
             if (!rect.Intersects(baseRect))
                 return false;
+            if (rect.Contains(startPoint) || rect.Contains(finishPoint))
+                return false;
             return rects.All(r => !rect.Intersects(r));
         }
 

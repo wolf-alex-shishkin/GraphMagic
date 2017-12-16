@@ -7,7 +7,7 @@ namespace GraphMagic.MapsTester
     public class SectionTests
     {
         [Test()]
-        public void TestCase1ForTrue()
+        public void TestIntersectsCase1ForTrue()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(0, 10);
@@ -16,7 +16,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase2ForTrue()
+        public void TestIntersectsCase2ForTrue()
         {
             var section1 = new Section(0, 10);
             var section2 = new Section(0, 5);
@@ -25,7 +25,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase3ForTrue()
+        public void TestIntersectsCase3ForTrue()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(0, 5);
@@ -34,7 +34,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase4ForFalse()
+        public void TestIntersectsCase4ForFalse()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(6, 11);
@@ -43,7 +43,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase5ForTrue()
+        public void TestIntersectsCase5ForTrue()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(5, 10);
@@ -52,7 +52,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase6ForTrue()
+        public void TestIntersectsCase6ForTrue()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(3, 11);
@@ -61,7 +61,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase7ForTrue()
+        public void TestIntersectsCase7ForTrue()
         {
             var section1 = new Section(3, 11);
             var section2 = new Section(0, 5);
@@ -70,7 +70,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase8ForTrue()
+        public void TestIntersectsCase8ForTrue()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(3, 5);
@@ -79,7 +79,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase9ForTrue()
+        public void TestIntersectsCase9ForTrue()
         {
             var section1 = new Section(3, 5);
             var section2 = new Section(0, 5);
@@ -88,7 +88,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase10ForTrue()
+        public void TestIntersectsCase10ForTrue()
         {
             var section1 = new Section(0, 5);
             var section2 = new Section(2, 3);
@@ -97,7 +97,7 @@ namespace GraphMagic.MapsTester
         }
 
         [Test()]
-        public void TestCase11ForTrue()
+        public void TestIntersectsCase11ForTrue()
         {
             var section1 = new Section(2, 3);
             var section2 = new Section(0, 5);

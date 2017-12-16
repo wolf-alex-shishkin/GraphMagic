@@ -43,5 +43,10 @@
         {
             return ProjectionX.Intersects(rect.ProjectionX) && ProjectionY.Intersects(rect.ProjectionY);
         }
+        public bool Contains(Point point)
+        {
+            return (ProjectionX.LeftNum <= point.X) && (ProjectionX.RightNum >= point.X)
+                && (ProjectionY.LeftNum <= point.Y) && (ProjectionY.RightNum >= point.Y);
+        }
     }
 }
