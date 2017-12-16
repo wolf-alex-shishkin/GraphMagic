@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GraphMagic.Maps
 {
-    class MapsGenerator
+    public class MapsGenerator
     {
         private readonly Random rnd;
 

@@ -1,15 +1,20 @@
-﻿namespace GraphMagic.Maps
+﻿using Newtonsoft.Json;
+
+namespace GraphMagic.Maps
 {
     public class Rect
     {
         public Point VertexUL { get; private set; }
 
+        [JsonIgnore]
         public Point VertexUR { get; private set; }
 
+        [JsonIgnore]
         public Point VertexDL { get; private set; }
 
         public Point VertexDR { get; private set; }
 
+        [JsonIgnore]
         public Section ProjectionX
         {
             get
@@ -18,6 +23,7 @@
             }
         }
 
+        [JsonIgnore]
         public Section ProjectionY
         {
             get

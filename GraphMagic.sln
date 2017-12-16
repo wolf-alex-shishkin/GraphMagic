@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "Maps\Maps.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapsTester", "MapsTester\MapsTester.csproj", "{06C0FFAA-79BE-40DE-B378-EBD4A5A5ADCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphMagicUtility", "GraphMagicUtility\GraphMagicUtility.csproj", "{F11CDE6C-E853-4926-A9C6-96337101846C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{06C0FFAA-79BE-40DE-B378-EBD4A5A5ADCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C0FFAA-79BE-40DE-B378-EBD4A5A5ADCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C0FFAA-79BE-40DE-B378-EBD4A5A5ADCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11CDE6C-E853-4926-A9C6-96337101846C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11CDE6C-E853-4926-A9C6-96337101846C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11CDE6C-E853-4926-A9C6-96337101846C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11CDE6C-E853-4926-A9C6-96337101846C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
