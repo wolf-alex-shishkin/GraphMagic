@@ -5,14 +5,16 @@ using System.Text;
 using GraphMagic.Maps;
 using System.IO;
 
-namespace GraphMagicUtility
+namespace GraphMagic.GraphMagicUtility
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var mapsGenerator = new MapsGenerator(1024);
-            var map = mapsGenerator.Generate(10);
+            var startParamsParser = new StartParamsParser();
+            var startParams = startParamsParser.Parse(args);
+            var mapsGenerator = new MapsGenerator(startParams.FieldSize);
+            var map = mapsGenerator.Generate(startParams.RectsNum);
             var stream = new MemoryStream();
             var writer = new MapsWriter();
             writer.Write(map, stream);
