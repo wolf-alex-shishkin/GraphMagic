@@ -11,7 +11,7 @@ namespace GraphMagicUtility
     {
         static void Main(string[] args)
         {
-            var mapsGenerator = new MapsGenerator();
+            var mapsGenerator = new MapsGenerator(1024);
             var map = mapsGenerator.Generate(10);
             var stream = new MemoryStream();
             var writer = new MapsWriter();
@@ -20,6 +20,7 @@ namespace GraphMagicUtility
             var reader = new StreamReader(stream);
             var mapString = reader.ReadToEnd();
             Console.Write(mapString);
+            Console.ReadLine();
         }
     }
 }

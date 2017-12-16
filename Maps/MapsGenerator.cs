@@ -7,15 +7,12 @@ namespace GraphMagic.Maps
     public class MapsGenerator
     {
         private readonly Random rnd;
+        private readonly int fieldSize;
 
-        public MapsGenerator()
+        public MapsGenerator(int? fieldSize = null, int? initNum = null)
         {
-            rnd = new Random();
-        }
-
-        public MapsGenerator(int initNum)
-        {
-            rnd = new Random(initNum);
+            rnd = initNum.HasValue ? new Random(initNum.Value) : new Random();
+            this.fieldSize = fieldSize.HasValue ? fieldSize.Value : int.MaxValue;
         }
 
         public Map Generate(int rectNum)
@@ -62,8 +59,8 @@ namespace GraphMagic.Maps
 
         private Point GeneratePoint()
         {
-            var x = rnd.Next();
-            var y = rnd.Next();
+            var x = rnd.Next(fieldSize);
+            var y = rnd.Next(fieldSize);
             var point = new Point(x, y);
             return point;
         }
