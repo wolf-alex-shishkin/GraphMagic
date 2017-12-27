@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace GraphMagic.Maps
 {
@@ -13,6 +14,33 @@ namespace GraphMagic.Maps
         public Point VertexDL { get; private set; }
 
         public Point VertexDR { get; private set; }
+
+        [JsonIgnore]
+        public IEnumerable<Point> Vertexes
+        {
+            get
+            {
+                return new Point[] { VertexUL, VertexUR, VertexDL, VertexDR };
+            }
+        }
+
+        [JsonIgnore]
+        public int Width
+        {
+            get
+            {
+                return VertexDR.X - VertexUL.X;
+            }
+        }
+
+        [JsonIgnore]
+        public int Height
+        {
+            get
+            {
+                return VertexDR.Y - VertexUL.Y;
+            }
+        }
 
         [JsonIgnore]
         public Section ProjectionX

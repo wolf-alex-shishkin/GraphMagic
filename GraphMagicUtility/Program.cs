@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GraphMagic.Maps;
+﻿using GraphMagic.Maps;
 using System.IO;
+using System.Drawing;
 
 namespace GraphMagic.GraphMagicUtility
 {
@@ -14,15 +11,39 @@ namespace GraphMagic.GraphMagicUtility
             var startParamsParser = new StartParamsParser();
             var startParams = startParamsParser.Parse(args);
             var mapsGenerator = new MapsGenerator(startParams.FieldSize);
-            var map = mapsGenerator.Generate(startParams.RectsNum);
-            var stream = new MemoryStream();
+            if (!Directory.Exists(startParams.FolderPath))
+                Directory.CreateDirectory(startParams.FolderPath);
+            foreach (var folder in Directory.EnumerateDirectories(startParams.FolderPath))
+                Directory.Delete(folder, true);
+            foreach (var file in Directory.EnumerateFiles(startParams.FolderPath))
+                File.Delete(file);
             var writer = new MapsWriter();
-            writer.Write(map, stream);
-            stream.Position = 0;
-            var reader = new StreamReader(stream);
-            var mapString = reader.ReadToEnd();
-            Console.Write(mapString);
-            Console.ReadLine();
+            var imageSaver = new MapsImageSaver();
+            int imageSize;
+            switch (startParams.ImageMode)
+            {
+                case ImageModeType.Small:
+                    imageSize = 1024;
+                    break;
+                case ImageModeType.Large:
+                    imageSize = 4096;
+                    break;
+                default:
+                    imageSize = startParams.FieldSize.Value;
+                    break;
+            }
+            for (var i = 1; i <= startParams.MapsNum; i++)
+            {
+                var map = mapsGenerator.Generate(startParams.RectsNum);
+                var fileName = $"map{i}.json";
+                var filePath = Path.Combine(startParams.FolderPath, fileName);
+                var stream = File.OpenWrite(filePath);
+                writer.Write(map, stream);
+                fileName = $"map{i}.png";
+                filePath = Path.Combine(startParams.FolderPath, fileName);
+                stream = File.OpenWrite(filePath);               
+                imageSaver.Save(map, stream, imageSize, System.Drawing.Imaging.ImageFormat.Png);
+            }
         }
     }
 }

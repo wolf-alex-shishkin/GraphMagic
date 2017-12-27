@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapsImageSaver.cs" />
     <Compile Include="MapsWriter.cs" />
     <Compile Include="MapsGenerator.cs" />
     <Compile Include="Models\Map.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="Models\Rect.cs" />
     <Compile Include="Models\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScalingInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

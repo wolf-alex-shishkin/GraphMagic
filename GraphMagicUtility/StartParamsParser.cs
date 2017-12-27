@@ -41,7 +41,19 @@ namespace GraphMagic.GraphMagicUtility
             if (string.IsNullOrEmpty(folderPath))
                 throw new ArgumentException("Ќе задан об€зательный параметр 'f' - путь до папки дл€ сохранени€ карт");
 
-            return new StartParams(fieldSize, rectsNum, mapsNum, folderPath);
+            var imageMode = ImageModeType.Real;
+
+            if (IsKeyPassed(args, "i"))
+            {
+                var imageModeParam = GetKeyValue(args, "i");
+                if (string.IsNullOrEmpty(imageModeParam))
+                    throw new ArgumentException("Ќе задано значение параметра 'i' - размер изображени€ дл€ сохранени€ карты");
+
+                if (!Enum.TryParse(imageModeParam, true, out imageMode))
+                    throw new ArgumentException("Ќеверное значение дл€ параметра 'i' - размер изображени€ дл€ сохранени€ карты. ќжидаетс€ одно из значений: small, large, real");
+            }
+
+            return new StartParams(fieldSize, rectsNum, mapsNum, folderPath, imageMode);
 		}
 
 		private static string GetKeyValue(string[] args, string key)
